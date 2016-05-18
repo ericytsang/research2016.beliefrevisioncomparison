@@ -7,7 +7,7 @@ import research2016.propositionallogic.Not
 import research2016.propositionallogic.Or
 
 /**
- * Created by surpl on 5/17/2016.
+ * hand crafted tests to verify that the revision functions work as expected.
  */
 class HandCraftedTests
 {

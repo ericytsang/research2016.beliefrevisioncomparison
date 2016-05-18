@@ -11,7 +11,7 @@ import research2016.propositionallogic.isSatisfiable
 import research2016.propositionallogic.makeFrom
 
 /**
- * belief revision using hamming distance for ordering states
+ * belief revision using hamming distance for ordering states.
  */
 fun reviseHamming(beliefState:Set<Proposition>,sentence:Proposition):Set<Proposition>
 {
@@ -61,6 +61,9 @@ fun Situation.hammingDistance(other:Situation):Int
     return commonKeys.count {this[it] != other[it]}
 }
 
+/**
+ * belief revision using the belief bases method.
+ */
 fun reviseBases(beliefState:Set<Proposition>,sentence:Proposition):Set<Proposition>
 {
     printTime("                         bases: ")
@@ -69,6 +72,10 @@ fun reviseBases(beliefState:Set<Proposition>,sentence:Proposition):Set<Propositi
     }
 }
 
+/**
+ * measures and prints out the time it takes to execute [block] in milliseconds.
+ * [label] is printed before the milliseconds are printed.
+ */
 inline fun <R> printTime(label:String? = null,block:()->R):R
 {
     val startTime = System.currentTimeMillis()

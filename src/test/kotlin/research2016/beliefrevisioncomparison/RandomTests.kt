@@ -6,9 +6,9 @@ import research2016.propositionallogic.Proposition
 import research2016.propositionallogic.makeRandom
 
 /**
- * Created by surpl on 5/17/2016.
+ * tests showing general performance of algorithms by having them revise
+ * randomly generated formulas.
  */
-
 class RandomTests
 {
     val prop1 = Proposition.makeRandom(12)
