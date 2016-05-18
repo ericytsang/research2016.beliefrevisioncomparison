@@ -16,16 +16,6 @@ class HandCraftedTests
     val prop3 = Or(Or(Or(Or(Or(Or(Or(Or(Or(Or(Not(BasicProposition.make("p")),Not(BasicProposition.make("q"))),Not(BasicProposition.make("r"))),Not(BasicProposition.make("s"))),Not(BasicProposition.make("t"))),Not(BasicProposition.make("u"))),Not(BasicProposition.make("v"))),Not(BasicProposition.make("w"))),Not(BasicProposition.make("x"))),Not(BasicProposition.make("y"))),Not(BasicProposition.make("z")))
 
     @Test
-    fun reviseHamming0()
-    {
-        val beliefState = setOf(prop3)
-        val sentence = prop3
-        println("beliefState: $beliefState")
-        println("sentence: $sentence")
-        println("revised: ${reviseHamming(beliefState,sentence)}")
-    }
-
-    @Test
     fun reviseHamming1()
     {
         val beliefState = setOf(prop2)
