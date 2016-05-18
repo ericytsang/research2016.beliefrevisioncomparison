@@ -16,7 +16,7 @@ class HandCraftedTests
     val prop3 = Or(Or(Not(BasicProposition.make("p")),Not(BasicProposition.make("q"))),Not(BasicProposition.make("r")))
 
     @Test
-    fun reviseHamming1()
+    fun reviseHamming1SentenceIsSubsetOfBeliefState()
     {
         val beliefState = setOf(prop2)
         val sentence = prop1
@@ -28,7 +28,7 @@ class HandCraftedTests
     }
 
     @Test
-    fun reviseHamming2()
+    fun reviseHamming2SentenceIsOutsideOfBeliefState()
     {
         val beliefState = setOf(prop1)
         val sentence = Not(prop1)
@@ -40,7 +40,7 @@ class HandCraftedTests
     }
 
     @Test
-    fun reviseHamming3()
+    fun reviseHamming3SentenceIntersectsWithBeliefState()
     {
         val beliefState = setOf(prop2)
         val sentence = prop3
@@ -52,7 +52,7 @@ class HandCraftedTests
     }
 
     @Test
-    fun reviseBases1()
+    fun reviseBases1SentenceIsSubsetOfBeliefState()
     {
         val beliefState = setOf(prop2)
         val sentence = prop1
@@ -64,7 +64,7 @@ class HandCraftedTests
     }
 
     @Test
-    fun reviseBases2()
+    fun reviseBases2SentenceIsOutsideOfBeliefState()
     {
         val beliefState = setOf(prop1)
         val sentence = Not(prop1)
@@ -76,7 +76,7 @@ class HandCraftedTests
     }
 
     @Test
-    fun reviseBases3()
+    fun reviseBases3SentenceIntersectsWithBeliefState()
     {
         val beliefState = setOf(prop2)
         val sentence = prop3
