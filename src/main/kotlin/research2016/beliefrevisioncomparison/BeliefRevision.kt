@@ -7,7 +7,7 @@ import research2016.propositionallogic.Situation
 import research2016.propositionallogic.basicPropositions
 import research2016.propositionallogic.evaluate
 import research2016.propositionallogic.generateFrom
-import research2016.propositionallogic.isSatisfiable
+import research2016.propositionallogic.isContradiction
 import research2016.propositionallogic.makeFrom
 
 /**
@@ -68,7 +68,7 @@ fun reviseBases(beliefState:Set<Proposition>,sentence:Proposition):Set<Propositi
 {
     printTime("                         bases: ")
     {
-        return beliefState.filter {And(it,sentence).isSatisfiable}.toSet()+sentence
+        return beliefState.filter {!And(it,sentence).isContradiction}.toSet()+sentence
     }
 }
 
