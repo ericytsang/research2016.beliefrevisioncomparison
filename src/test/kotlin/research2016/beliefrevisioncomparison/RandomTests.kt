@@ -1,6 +1,7 @@
 package research2016.beliefrevisioncomparison
 
 import org.junit.Test
+import research2016.propositionallogic.BasicProposition
 import research2016.propositionallogic.Not
 import research2016.propositionallogic.Proposition
 import research2016.propositionallogic.makeRandom
@@ -11,135 +12,336 @@ import research2016.propositionallogic.makeRandom
  */
 class RandomTests
 {
-    val prop1 = Proposition.makeRandom(12)
-    val prop2 = Proposition.makeRandom(12)
-    val prop3 = Proposition.makeRandom(12)
+    fun Proposition.Companion.makeRandom(numPropositions:Int):Proposition
+    {
+        return Proposition.makeRandom(BasicProposition.makeRandom(listOf("p","q","r","s","t"),numPropositions))
+    }
 
     @Test
-    fun reviseHamming0()
+    fun reviseHamming00()
     {
-        val beliefState = setOf(prop3)
-        val sentence = prop3
+        val beliefState = setOf(Proposition.makeRandom(12))
+        val sentence = Proposition.makeRandom(5)
         println("beliefState: $beliefState")
         println("sentence: $sentence")
         println("revised: ${reviseHamming(beliefState,sentence)}")
     }
 
     @Test
-    fun reviseHamming1()
+    fun reviseHamming01()
     {
-        val beliefState = setOf(prop2)
-        val sentence = prop1
+        val beliefState = setOf(Proposition.makeRandom(13))
+        val sentence = Proposition.makeRandom(5)
         println("beliefState: $beliefState")
         println("sentence: $sentence")
         println("revised: ${reviseHamming(beliefState,sentence)}")
     }
 
     @Test
-    fun reviseHamming2()
+    fun reviseHamming02()
     {
-        val beliefState = setOf(prop1)
-        val sentence = Not(prop1)
+        val beliefState = setOf(Proposition.makeRandom(14))
+        val sentence = Proposition.makeRandom(5)
         println("beliefState: $beliefState")
         println("sentence: $sentence")
         println("revised: ${reviseHamming(beliefState,sentence)}")
     }
 
     @Test
-    fun reviseHamming3()
+    fun reviseHamming03()
     {
-        val beliefState = setOf(prop2)
-        val sentence = prop3
+        val beliefState = setOf(Proposition.makeRandom(15))
+        val sentence = Proposition.makeRandom(5)
         println("beliefState: $beliefState")
         println("sentence: $sentence")
         println("revised: ${reviseHamming(beliefState,sentence)}")
     }
 
     @Test
-    fun reviseHamming4()
+    fun reviseHamming04()
     {
-        val beliefState = setOf(prop2)
-        val sentence = prop1
+        val beliefState = setOf(Proposition.makeRandom(16))
+        val sentence = Proposition.makeRandom(5)
         println("beliefState: $beliefState")
         println("sentence: $sentence")
         println("revised: ${reviseHamming(beliefState,sentence)}")
     }
 
     @Test
-    fun reviseHamming5()
+    fun reviseHamming05()
     {
-        val beliefState = setOf(prop1)
-        val sentence = Not(prop1)
+        val beliefState = setOf(Proposition.makeRandom(17))
+        val sentence = Proposition.makeRandom(5)
         println("beliefState: $beliefState")
         println("sentence: $sentence")
         println("revised: ${reviseHamming(beliefState,sentence)}")
     }
 
     @Test
-    fun reviseHamming6()
+    fun reviseHamming06()
     {
-        val beliefState = setOf(prop2)
-        val sentence = prop3
+        val beliefState = setOf(Proposition.makeRandom(18))
+        val sentence = Proposition.makeRandom(5)
         println("beliefState: $beliefState")
         println("sentence: $sentence")
         println("revised: ${reviseHamming(beliefState,sentence)}")
     }
 
     @Test
-    fun reviseBases1()
+    fun reviseHamming07()
     {
-        val beliefState = setOf(prop2)
-        val sentence = prop1
+        val beliefState = setOf(Proposition.makeRandom(19))
+        val sentence = Proposition.makeRandom(5)
+        println("beliefState: $beliefState")
+        println("sentence: $sentence")
+        println("revised: ${reviseHamming(beliefState,sentence)}")
+    }
+
+    @Test
+    fun reviseHamming08()
+    {
+        val beliefState = setOf(Proposition.makeRandom(20))
+        val sentence = Proposition.makeRandom(5)
+        println("beliefState: $beliefState")
+        println("sentence: $sentence")
+        println("revised: ${reviseHamming(beliefState,sentence)}")
+    }
+
+    @Test
+    fun reviseHamming10()
+    {
+        val sentence = Proposition.makeRandom(13)
+        val beliefState = setOf(Not(sentence))
+        println("beliefState: $beliefState")
+        println("sentence: $sentence")
+        println("revised: ${reviseHamming(beliefState,sentence)}")
+    }
+
+    @Test
+    fun reviseHamming11()
+    {
+        val sentence = Proposition.makeRandom(14)
+        val beliefState = setOf(Not(sentence))
+        println("beliefState: $beliefState")
+        println("sentence: $sentence")
+        println("revised: ${reviseHamming(beliefState,sentence)}")
+    }
+
+    @Test
+    fun reviseHamming12()
+    {
+        val sentence = Proposition.makeRandom(15)
+        val beliefState = setOf(Not(sentence))
+        println("beliefState: $beliefState")
+        println("sentence: $sentence")
+        println("revised: ${reviseHamming(beliefState,sentence)}")
+    }
+
+    @Test
+    fun reviseHamming13()
+    {
+        val sentence = Proposition.makeRandom(16)
+        val beliefState = setOf(Not(sentence))
+        println("beliefState: $beliefState")
+        println("sentence: $sentence")
+        println("revised: ${reviseHamming(beliefState,sentence)}")
+    }
+
+    @Test
+    fun reviseHamming14()
+    {
+        val sentence = Proposition.makeRandom(17)
+        val beliefState = setOf(Not(sentence),sentence)
+        println("beliefState: $beliefState")
+        println("sentence: $sentence")
+        println("revised: ${reviseHamming(beliefState,sentence)}")
+    }
+
+    @Test
+    fun reviseHamming15()
+    {
+        val sentence = Proposition.makeRandom(18)
+        val beliefState = setOf(Not(sentence),sentence)
+        println("beliefState: $beliefState")
+        println("sentence: $sentence")
+        println("revised: ${reviseHamming(beliefState,sentence)}")
+    }
+
+    @Test
+    fun reviseHamming16()
+    {
+        val sentence = Proposition.makeRandom(19)
+        val beliefState = setOf(Not(sentence),sentence)
+        println("beliefState: $beliefState")
+        println("sentence: $sentence")
+        println("revised: ${reviseHamming(beliefState,sentence)}")
+    }
+
+    @Test
+    fun reviseHamming17()
+    {
+        val sentence = Proposition.makeRandom(20)
+        val beliefState = setOf(Not(sentence),sentence)
+        println("beliefState: $beliefState")
+        println("sentence: $sentence")
+        println("revised: ${reviseHamming(beliefState,sentence)}")
+    }
+
+    @Test
+    fun reviseBases01()
+    {
+        val beliefState = setOf(Proposition.makeRandom(13))
+        val sentence = Proposition.makeRandom(5)
         println("beliefState: $beliefState")
         println("sentence: $sentence")
         println("revised: ${reviseBases(beliefState,sentence)}")
     }
 
     @Test
-    fun reviseBases2()
+    fun reviseBases02()
     {
-        val beliefState = setOf(prop1)
-        val sentence = Not(prop1)
+        val beliefState = setOf(Proposition.makeRandom(14))
+        val sentence = Proposition.makeRandom(5)
         println("beliefState: $beliefState")
         println("sentence: $sentence")
         println("revised: ${reviseBases(beliefState,sentence)}")
     }
 
     @Test
-    fun reviseBases3()
+    fun reviseBases03()
     {
-        val beliefState = setOf(prop2)
-        val sentence = prop3
+        val beliefState = setOf(Proposition.makeRandom(15))
+        val sentence = Proposition.makeRandom(5)
         println("beliefState: $beliefState")
         println("sentence: $sentence")
         println("revised: ${reviseBases(beliefState,sentence)}")
     }
 
     @Test
-    fun reviseBases4()
+    fun reviseBases04()
     {
-        val beliefState = setOf(prop2)
-        val sentence = prop1
+        val beliefState = setOf(Proposition.makeRandom(16))
+        val sentence = Proposition.makeRandom(5)
         println("beliefState: $beliefState")
         println("sentence: $sentence")
         println("revised: ${reviseBases(beliefState,sentence)}")
     }
 
     @Test
-    fun reviseBases5()
+    fun reviseBases05()
     {
-        val beliefState = setOf(prop1)
-        val sentence = Not(prop1)
+        val beliefState = setOf(Proposition.makeRandom(17))
+        val sentence = Proposition.makeRandom(5)
         println("beliefState: $beliefState")
         println("sentence: $sentence")
         println("revised: ${reviseBases(beliefState,sentence)}")
     }
 
     @Test
-    fun reviseBases6()
+    fun reviseBases06()
     {
-        val beliefState = setOf(prop2)
-        val sentence = prop3
+        val beliefState = setOf(Proposition.makeRandom(18))
+        val sentence = Proposition.makeRandom(5)
+        println("beliefState: $beliefState")
+        println("sentence: $sentence")
+        println("revised: ${reviseBases(beliefState,sentence)}")
+    }
+
+    @Test
+    fun reviseBases07()
+    {
+        val beliefState = setOf(Proposition.makeRandom(19))
+        val sentence = Proposition.makeRandom(5)
+        println("beliefState: $beliefState")
+        println("sentence: $sentence")
+        println("revised: ${reviseBases(beliefState,sentence)}")
+    }
+
+    @Test
+    fun reviseBases08()
+    {
+        val beliefState = setOf(Proposition.makeRandom(20))
+        val sentence = Proposition.makeRandom(5)
+        println("beliefState: $beliefState")
+        println("sentence: $sentence")
+        println("revised: ${reviseBases(beliefState,sentence)}")
+    }
+
+    @Test
+    fun reviseBases10()
+    {
+        val sentence = Proposition.makeRandom(13)
+        val beliefState = setOf(Not(sentence))
+        println("beliefState: $beliefState")
+        println("sentence: $sentence")
+        println("revised: ${reviseBases(beliefState,sentence)}")
+    }
+
+    @Test
+    fun reviseBases11()
+    {
+        val sentence = Proposition.makeRandom(14)
+        val beliefState = setOf(Not(sentence))
+        println("beliefState: $beliefState")
+        println("sentence: $sentence")
+        println("revised: ${reviseBases(beliefState,sentence)}")
+    }
+
+    @Test
+    fun reviseBases12()
+    {
+        val sentence = Proposition.makeRandom(15)
+        val beliefState = setOf(Not(sentence))
+        println("beliefState: $beliefState")
+        println("sentence: $sentence")
+        println("revised: ${reviseBases(beliefState,sentence)}")
+    }
+
+    @Test
+    fun reviseBases13()
+    {
+        val sentence = Proposition.makeRandom(16)
+        val beliefState = setOf(Not(sentence))
+        println("beliefState: $beliefState")
+        println("sentence: $sentence")
+        println("revised: ${reviseBases(beliefState,sentence)}")
+    }
+
+    @Test
+    fun reviseBases14()
+    {
+        val sentence = Proposition.makeRandom(17)
+        val beliefState = setOf(Not(sentence),sentence)
+        println("beliefState: $beliefState")
+        println("sentence: $sentence")
+        println("revised: ${reviseBases(beliefState,sentence)}")
+    }
+
+    @Test
+    fun reviseBases15()
+    {
+        val sentence = Proposition.makeRandom(18)
+        val beliefState = setOf(Not(sentence),sentence)
+        println("beliefState: $beliefState")
+        println("sentence: $sentence")
+        println("revised: ${reviseBases(beliefState,sentence)}")
+    }
+
+    @Test
+    fun reviseBases16()
+    {
+        val sentence = Proposition.makeRandom(19)
+        val beliefState = setOf(Not(sentence),sentence)
+        println("beliefState: $beliefState")
+        println("sentence: $sentence")
+        println("revised: ${reviseBases(beliefState,sentence)}")
+    }
+
+    @Test
+    fun reviseBases17()
+    {
+        val sentence = Proposition.makeRandom(20)
+        val beliefState = setOf(Not(sentence),sentence)
         println("beliefState: $beliefState")
         println("sentence: $sentence")
         println("revised: ${reviseBases(beliefState,sentence)}")
