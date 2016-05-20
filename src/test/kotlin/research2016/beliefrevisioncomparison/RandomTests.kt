@@ -14,11 +14,11 @@ class RandomTests
 {
     fun Proposition.Companion.makeRandom(numPropositions:Int):Proposition
     {
-        return Proposition.makeRandom(BasicProposition.makeRandom(listOf("p","q","r","s","t"),numPropositions))
+        return Proposition.makeRandom(BasicProposition.makeRandom(listOf("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"),numPropositions))
     }
 
     @Test
-    fun reviseHamming00()
+    fun reviseHamming0()
     {
         val beliefState = setOf(Proposition.makeRandom(12))
         val sentence = Proposition.makeRandom(5)
@@ -28,7 +28,7 @@ class RandomTests
     }
 
     @Test
-    fun reviseHamming01()
+    fun reviseHamming1()
     {
         val beliefState = setOf(Proposition.makeRandom(13))
         val sentence = Proposition.makeRandom(5)
@@ -38,7 +38,7 @@ class RandomTests
     }
 
     @Test
-    fun reviseHamming02()
+    fun reviseHamming2()
     {
         val beliefState = setOf(Proposition.makeRandom(14))
         val sentence = Proposition.makeRandom(5)
@@ -48,7 +48,7 @@ class RandomTests
     }
 
     @Test
-    fun reviseHamming03()
+    fun reviseHamming3()
     {
         val beliefState = setOf(Proposition.makeRandom(15))
         val sentence = Proposition.makeRandom(5)
@@ -58,7 +58,7 @@ class RandomTests
     }
 
     @Test
-    fun reviseHamming04()
+    fun reviseHamming4()
     {
         val beliefState = setOf(Proposition.makeRandom(16))
         val sentence = Proposition.makeRandom(5)
@@ -68,7 +68,7 @@ class RandomTests
     }
 
     @Test
-    fun reviseHamming05()
+    fun reviseHamming5()
     {
         val beliefState = setOf(Proposition.makeRandom(17))
         val sentence = Proposition.makeRandom(5)
@@ -78,7 +78,7 @@ class RandomTests
     }
 
     @Test
-    fun reviseHamming06()
+    fun reviseHamming6()
     {
         val beliefState = setOf(Proposition.makeRandom(18))
         val sentence = Proposition.makeRandom(5)
@@ -88,7 +88,7 @@ class RandomTests
     }
 
     @Test
-    fun reviseHamming07()
+    fun reviseHamming7()
     {
         val beliefState = setOf(Proposition.makeRandom(19))
         val sentence = Proposition.makeRandom(5)
@@ -98,7 +98,7 @@ class RandomTests
     }
 
     @Test
-    fun reviseHamming08()
+    fun reviseHamming8()
     {
         val beliefState = setOf(Proposition.makeRandom(20))
         val sentence = Proposition.makeRandom(5)
@@ -108,7 +108,7 @@ class RandomTests
     }
 
     @Test
-    fun reviseHamming10()
+    fun reviseHammingOfContradiction0()
     {
         val sentence = Proposition.makeRandom(13)
         val beliefState = setOf(Not(sentence))
@@ -118,7 +118,7 @@ class RandomTests
     }
 
     @Test
-    fun reviseHamming11()
+    fun reviseHammingOfContradiction1()
     {
         val sentence = Proposition.makeRandom(14)
         val beliefState = setOf(Not(sentence))
@@ -128,7 +128,7 @@ class RandomTests
     }
 
     @Test
-    fun reviseHamming12()
+    fun reviseHammingOfContradiction2()
     {
         val sentence = Proposition.makeRandom(15)
         val beliefState = setOf(Not(sentence))
@@ -138,7 +138,7 @@ class RandomTests
     }
 
     @Test
-    fun reviseHamming13()
+    fun reviseHammingOfContradiction3()
     {
         val sentence = Proposition.makeRandom(16)
         val beliefState = setOf(Not(sentence))
@@ -148,7 +148,7 @@ class RandomTests
     }
 
     @Test
-    fun reviseHamming14()
+    fun reviseHammingOfContradiction4()
     {
         val sentence = Proposition.makeRandom(17)
         val beliefState = setOf(Not(sentence),sentence)
@@ -158,7 +158,7 @@ class RandomTests
     }
 
     @Test
-    fun reviseHamming15()
+    fun reviseHammingOfContradiction5()
     {
         val sentence = Proposition.makeRandom(18)
         val beliefState = setOf(Not(sentence),sentence)
@@ -168,7 +168,7 @@ class RandomTests
     }
 
     @Test
-    fun reviseHamming16()
+    fun reviseHammingOfContradiction6()
     {
         val sentence = Proposition.makeRandom(19)
         val beliefState = setOf(Not(sentence),sentence)
@@ -178,7 +178,7 @@ class RandomTests
     }
 
     @Test
-    fun reviseHamming17()
+    fun reviseHammingOfContradiction7()
     {
         val sentence = Proposition.makeRandom(20)
         val beliefState = setOf(Not(sentence),sentence)
@@ -188,7 +188,7 @@ class RandomTests
     }
 
     @Test
-    fun reviseBases01()
+    fun reviseBases1()
     {
         val beliefState = setOf(Proposition.makeRandom(13))
         val sentence = Proposition.makeRandom(5)
@@ -198,7 +198,7 @@ class RandomTests
     }
 
     @Test
-    fun reviseBases02()
+    fun reviseBases2()
     {
         val beliefState = setOf(Proposition.makeRandom(14))
         val sentence = Proposition.makeRandom(5)
@@ -208,7 +208,7 @@ class RandomTests
     }
 
     @Test
-    fun reviseBases03()
+    fun reviseBases3()
     {
         val beliefState = setOf(Proposition.makeRandom(15))
         val sentence = Proposition.makeRandom(5)
@@ -218,7 +218,7 @@ class RandomTests
     }
 
     @Test
-    fun reviseBases04()
+    fun reviseBases4()
     {
         val beliefState = setOf(Proposition.makeRandom(16))
         val sentence = Proposition.makeRandom(5)
@@ -228,7 +228,7 @@ class RandomTests
     }
 
     @Test
-    fun reviseBases05()
+    fun reviseBases5()
     {
         val beliefState = setOf(Proposition.makeRandom(17))
         val sentence = Proposition.makeRandom(5)
@@ -238,7 +238,7 @@ class RandomTests
     }
 
     @Test
-    fun reviseBases06()
+    fun reviseBases6()
     {
         val beliefState = setOf(Proposition.makeRandom(18))
         val sentence = Proposition.makeRandom(5)
@@ -248,7 +248,7 @@ class RandomTests
     }
 
     @Test
-    fun reviseBases07()
+    fun reviseBases7()
     {
         val beliefState = setOf(Proposition.makeRandom(19))
         val sentence = Proposition.makeRandom(5)
@@ -258,7 +258,7 @@ class RandomTests
     }
 
     @Test
-    fun reviseBases08()
+    fun reviseBases8()
     {
         val beliefState = setOf(Proposition.makeRandom(20))
         val sentence = Proposition.makeRandom(5)
@@ -268,7 +268,7 @@ class RandomTests
     }
 
     @Test
-    fun reviseBases10()
+    fun reviseBasesOfContradiction0()
     {
         val sentence = Proposition.makeRandom(13)
         val beliefState = setOf(Not(sentence))
@@ -278,7 +278,7 @@ class RandomTests
     }
 
     @Test
-    fun reviseBases11()
+    fun reviseBasesOfContradiction1()
     {
         val sentence = Proposition.makeRandom(14)
         val beliefState = setOf(Not(sentence))
@@ -288,7 +288,7 @@ class RandomTests
     }
 
     @Test
-    fun reviseBases12()
+    fun reviseBasesOfContradiction2()
     {
         val sentence = Proposition.makeRandom(15)
         val beliefState = setOf(Not(sentence))
@@ -298,7 +298,7 @@ class RandomTests
     }
 
     @Test
-    fun reviseBases13()
+    fun reviseBasesOfContradiction3()
     {
         val sentence = Proposition.makeRandom(16)
         val beliefState = setOf(Not(sentence))
@@ -308,7 +308,7 @@ class RandomTests
     }
 
     @Test
-    fun reviseBases14()
+    fun reviseBasesOfContradiction4()
     {
         val sentence = Proposition.makeRandom(17)
         val beliefState = setOf(Not(sentence),sentence)
@@ -318,7 +318,7 @@ class RandomTests
     }
 
     @Test
-    fun reviseBases15()
+    fun reviseBasesOfContradiction5()
     {
         val sentence = Proposition.makeRandom(18)
         val beliefState = setOf(Not(sentence),sentence)
@@ -328,7 +328,7 @@ class RandomTests
     }
 
     @Test
-    fun reviseBases16()
+    fun reviseBasesOfContradiction6()
     {
         val sentence = Proposition.makeRandom(19)
         val beliefState = setOf(Not(sentence),sentence)
@@ -338,7 +338,7 @@ class RandomTests
     }
 
     @Test
-    fun reviseBases17()
+    fun reviseBasesOfContradiction7()
     {
         val sentence = Proposition.makeRandom(20)
         val beliefState = setOf(Not(sentence),sentence)
