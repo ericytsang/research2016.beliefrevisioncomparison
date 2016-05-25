@@ -4,6 +4,7 @@ import research2016.propositionallogic.And
 import research2016.propositionallogic.Contradiction
 import research2016.propositionallogic.Proposition
 import research2016.propositionallogic.Situation
+import research2016.propositionallogic.and
 import research2016.propositionallogic.basicPropositions
 import research2016.propositionallogic.evaluate
 import research2016.propositionallogic.generateFrom
@@ -15,7 +16,7 @@ import research2016.propositionallogic.makeFrom
  */
 fun reviseHamming(beliefState:Set<Proposition>,sentence:Proposition):Set<Proposition>
 {
-    val concatenatedBeliefStates = beliefState.fold<Proposition,Proposition?>(null) {initial,next -> initial?.let {And(initial,next)} ?: next} ?: Contradiction
+    val concatenatedBeliefStates = beliefState.fold<Proposition,Proposition?>(null) {initial,next -> initial?.let {initial and next} ?: next} ?: Contradiction
 
     val nearestSituations = printTime("                         hamming: ")
     {
@@ -68,7 +69,7 @@ fun reviseBases(beliefState:Set<Proposition>,sentence:Proposition):Set<Propositi
 {
     printTime("                         bases: ")
     {
-        return beliefState.filter {!And(it,sentence).isContradiction}.toSet()+sentence
+        return beliefState.filter {!(it and sentence).isContradiction}.toSet()+sentence
     }
 }
 

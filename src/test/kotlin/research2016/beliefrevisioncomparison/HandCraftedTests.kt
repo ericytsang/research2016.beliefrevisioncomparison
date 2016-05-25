@@ -1,19 +1,23 @@
 package research2016.beliefrevisioncomparison
 
 import org.junit.Test
-import research2016.propositionallogic.And
 import research2016.propositionallogic.BasicProposition
 import research2016.propositionallogic.Not
-import research2016.propositionallogic.Or
+import research2016.propositionallogic.and
+import research2016.propositionallogic.not
+import research2016.propositionallogic.or
 
 /**
  * hand crafted tests to verify that the revision functions work as expected.
  */
 class HandCraftedTests
 {
-    val prop1 = And(And(BasicProposition.make("p"),BasicProposition.make("q")),BasicProposition.make("r"))
-    val prop2 = Or(Or(BasicProposition.make("p"),BasicProposition.make("q")),BasicProposition.make("r"))
-    val prop3 = Or(Or(Not(BasicProposition.make("p")),Not(BasicProposition.make("q"))),Not(BasicProposition.make("r")))
+    val p = BasicProposition.make("p")
+    val q = BasicProposition.make("q")
+    val r = BasicProposition.make("r")
+    val prop1 = p and q and r
+    val prop2 = p or q or r
+    val prop3 = p.not or q.not or r.not
 
     @Test
     fun reviseHamming1SentenceIsSubsetOfBeliefState()
@@ -24,7 +28,7 @@ class HandCraftedTests
         println("sentence: $sentence")
         val revised = reviseHamming(beliefState,sentence)
         println("revised: $revised")
-        assert(revised.toString() == "[((p∧q)∧r)]")
+        assert(revised.toString() == "[p∧q∧r]")
     }
 
     @Test
@@ -36,7 +40,7 @@ class HandCraftedTests
         println("sentence: $sentence")
         val revised = reviseHamming(beliefState,sentence)
         println("revised: $revised")
-        assert(revised.toString() == "[(((¬p)∧q)∧r), ((p∧(¬q))∧r), ((p∧q)∧(¬r))]")
+        assert(revised.toString() == "[¬p∧q∧r, p∧¬q∧r, p∧q∧¬r]")
     }
 
     @Test
@@ -48,7 +52,7 @@ class HandCraftedTests
         println("sentence: $sentence")
         val revised = reviseHamming(beliefState,sentence)
         println("revised: $revised")
-        assert(revised.toString() == "[(((¬p)∧(¬q))∧r), (((¬p)∧q)∧(¬r)), (((¬p)∧q)∧r), ((p∧(¬q))∧(¬r)), ((p∧(¬q))∧r), ((p∧q)∧(¬r))]")
+        assert(revised.toString() == "[¬p∧¬q∧r, ¬p∧q∧¬r, ¬p∧q∧r, p∧¬q∧¬r, p∧¬q∧r, p∧q∧¬r]")
     }
 
     @Test
@@ -60,7 +64,7 @@ class HandCraftedTests
         println("sentence: $sentence")
         val revised = reviseBases(beliefState,sentence)
         println("revised: $revised")
-        assert(revised.toString() == "[((p∨q)∨r), ((p∧q)∧r)]")
+        assert(revised.toString() == "[p∨q∨r, p∧q∧r]")
     }
 
     @Test
@@ -72,7 +76,7 @@ class HandCraftedTests
         println("sentence: $sentence")
         val revised = reviseBases(beliefState,sentence)
         println("revised: $revised")
-        assert(revised.toString() == "[(¬((p∧q)∧r))]")
+        assert(revised.toString() == "[¬(p∧q∧r)]")
     }
 
     @Test
@@ -84,6 +88,6 @@ class HandCraftedTests
         println("sentence: $sentence")
         val revised = reviseBases(beliefState,sentence)
         println("revised: $revised")
-        assert(revised.toString() == "[((p∨q)∨r), (((¬p)∨(¬q))∨(¬r))]")
+        assert(revised.toString() == "[p∨q∨r, ¬p∨¬q∨¬r]")
     }
 }
