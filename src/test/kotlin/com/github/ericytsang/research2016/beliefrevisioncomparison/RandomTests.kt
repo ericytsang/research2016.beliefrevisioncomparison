@@ -1,10 +1,10 @@
-package research2016.beliefrevisioncomparison
+package com.github.ericytsang.research2016.beliefrevisioncomparison
 
 import org.junit.Test
-import research2016.propositionallogic.BasicProposition
-import research2016.propositionallogic.Not
-import research2016.propositionallogic.Proposition
-import research2016.propositionallogic.makeRandom
+import com.github.ericytsang.research2016.propositionallogic.Variable
+import com.github.ericytsang.research2016.propositionallogic.Not
+import com.github.ericytsang.research2016.propositionallogic.Proposition
+import com.github.ericytsang.research2016.propositionallogic.makeRandom
 
 /**
  * tests showing general performance of algorithms by having them revise
@@ -14,7 +14,7 @@ class RandomTests
 {
     fun Proposition.Companion.makeRandom(numPropositions:Int):Proposition
     {
-        return Proposition.makeRandom(BasicProposition.makeRandom(listOf("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"),numPropositions))
+        return Proposition.makeRandom(Variable.makeRandom(listOf("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"),numPropositions))
     }
 
     @Test

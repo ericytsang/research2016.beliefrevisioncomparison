@@ -1,22 +1,21 @@
-package research2016.beliefrevisioncomparison
+package com.github.ericytsang.research2016.beliefrevisioncomparison
 
-import research2016.propositionallogic.And
-import research2016.propositionallogic.Contradiction
-import research2016.propositionallogic.Proposition
-import research2016.propositionallogic.Situation
-import research2016.propositionallogic.and
-import research2016.propositionallogic.basicPropositions
-import research2016.propositionallogic.evaluate
-import research2016.propositionallogic.generateFrom
-import research2016.propositionallogic.isContradiction
-import research2016.propositionallogic.makeFrom
+import com.github.ericytsang.research2016.propositionallogic.contradiction
+import com.github.ericytsang.research2016.propositionallogic.Proposition
+import com.github.ericytsang.research2016.propositionallogic.State
+import com.github.ericytsang.research2016.propositionallogic.and
+import com.github.ericytsang.research2016.propositionallogic.variables
+import com.github.ericytsang.research2016.propositionallogic.evaluate
+import com.github.ericytsang.research2016.propositionallogic.generateFrom
+import com.github.ericytsang.research2016.propositionallogic.isContradiction
+import com.github.ericytsang.research2016.propositionallogic.makeFrom
 
 /**
  * belief revision using hamming distance for ordering states.
  */
 fun reviseHamming(beliefState:Set<Proposition>,sentence:Proposition):Set<Proposition>
 {
-    val concatenatedBeliefStates = beliefState.fold<Proposition,Proposition?>(null) {initial,next -> initial?.let {initial and next} ?: next} ?: Contradiction
+    val concatenatedBeliefStates = beliefState.fold<Proposition,Proposition?>(null) {initial,next -> initial?.let {initial and next} ?: next} ?: contradiction
 
     val nearestSituations = printTime("                         hamming: ")
     {
@@ -24,8 +23,8 @@ fun reviseHamming(beliefState:Set<Proposition>,sentence:Proposition):Set<Proposi
         // i.e.: Map<hamming distance, model>
         //
         // if there are no beliefStateModels, then all models are mapped to 0
-        val beliefStateSituations = Situation.generateFrom(concatenatedBeliefStates.basicPropositions)
-        val sentenceSituations = Situation.generateFrom(sentence.basicPropositions)
+        val beliefStateSituations = State.generateFrom(concatenatedBeliefStates.variables)
+        val sentenceSituations = State.generateFrom(sentence.variables)
         val beliefStateModels = beliefStateSituations.filter {concatenatedBeliefStates.evaluate(it)}
         val sentenceModels = sentenceSituations.filter {sentence.evaluate(it)}
         val orderedSentenceModels = sentenceModels.groupBy()
@@ -48,7 +47,7 @@ fun reviseHamming(beliefState:Set<Proposition>,sentence:Proposition):Set<Proposi
  * [Situation]; the number of mappings of [BasicProposition]s to truth values
  * that they disagree with.
  */
-fun Situation.hammingDistance(other:Situation):Int
+fun State.hammingDistance(other:State):Int
 {
     val commonKeys = if (other.keys.size < keys.size)
     {
